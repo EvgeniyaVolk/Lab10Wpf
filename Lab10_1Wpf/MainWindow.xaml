@@ -1,0 +1,80 @@
+﻿<Window x:Class="Lab10_1Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab10_1Wpf"
+        mc:Ignorable="d"
+        Title="Эксперимент" Height="600" Width="800" Background="AliceBlue">
+    <StackPanel>
+        <Border x:Name="Оригинал" BorderBrush="White" BorderThickness="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image x:Name="myImage" Source="D:\Microsoft Visual Studio\РАЗРАБОТКА ПО ТЕХНОЛОГИИ WINDOWS PRESENTATION FOUNDATION\Lab10Wpf\Lab10_1Wpf\Data\10254530.jpg"
+                   Height="140" Width="250"/>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="5" HorizontalAlignment="Center" VerticalAlignment="Center" Height="140" Width="260">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=myImage}">
+                    <VisualBrush.Transform>
+                        <ScaleTransform ScaleX="1" ScaleY="-1" CenterX="120" CenterY="70">
+                        </ScaleTransform>
+                    </VisualBrush.Transform>
+                </VisualBrush>
+            </Border.Background>
+            <Border.OpacityMask>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="Black"/>
+                    <GradientStop Offset="0.3" Color="Transparent"/>
+                </LinearGradientBrush>
+            </Border.OpacityMask>
+        </Border>
+        <Border x:Name="Середина" Height="140" Width="260" Margin="267,-100,266.6,0">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=myImage}">
+                    <VisualBrush.Transform>
+                        <ScaleTransform ScaleX="0.8" ScaleY="0.7" CenterX="120" CenterY="70"/>
+                    </VisualBrush.Transform>
+                </VisualBrush>
+            </Border.Background>
+        </Border>
+        <Border x:Name="ТеньСередины"   Height="140" Width="260">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=myImage}">
+                    <VisualBrush.Transform>
+                        <ScaleTransform ScaleX="0.8" ScaleY="-1" CenterX="120" CenterY="60">
+                        </ScaleTransform>
+                    </VisualBrush.Transform>
+                </VisualBrush>
+            </Border.Background>
+            <Border.OpacityMask>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="Black"/>
+                    <GradientStop Offset="0.3" Color="Transparent"/>
+                </LinearGradientBrush>
+            </Border.OpacityMask>
+        </Border>
+        <Border x:Name="Лево" Height="140" Width="260" Margin="7,-150,526.6,0">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=myImage}">
+                    <VisualBrush.Transform>
+                        <ScaleTransform ScaleX="0.9" ScaleY="0.9" CenterX="110" CenterY="-90"/>
+                    </VisualBrush.Transform>
+                </VisualBrush>
+            </Border.Background>
+            <Border.RenderTransform>
+                <SkewTransform CenterX="-520" CenterY="0" AngleX="0" AngleY="-10"/>
+            </Border.RenderTransform>
+        </Border>
+        <Border x:Name="Право" Height="140" Width="260" Margin="527,-150,6.6,0">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=myImage}">
+                    <VisualBrush.Transform>
+                        <ScaleTransform ScaleX="0.9" ScaleY="0.9" CenterX="110" CenterY="-90"/>
+                    </VisualBrush.Transform>
+                </VisualBrush>
+            </Border.Background>
+            <Border.RenderTransform>
+                <SkewTransform CenterX="750" CenterY="0" AngleX="0" AngleY="10"/>
+            </Border.RenderTransform>
+        </Border>
+    </StackPanel>
+</Window>
